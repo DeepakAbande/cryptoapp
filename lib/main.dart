@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:provider/provider.dart';
 import 'DataModel.dart';
 
 void main() {
@@ -145,7 +144,7 @@ class _HomeState extends State<Home> {
                                 radius: 25.0,
                               ) ,
                               title: Text(DataList[index].name,style: TextStyle(fontSize: 20),),
-                              subtitle:Text('\$'+price+'\n'+price_ch),
+                              subtitle:Text('\$'+price+'\n'+'1 hour  '+price_ch+'%'),
                             ),
                           ),
                         ),
@@ -167,9 +166,10 @@ class _HomeState extends State<Home> {
             height: 760,
             child: CupertinoPageScaffold(
               navigationBar: CupertinoNavigationBar(
-                middle: Text('Crypto App'),
+                backgroundColor:  isdarkmode ? Colors.black :Colors.white,
+                middle: Text('Crypto App',style: TextStyle(color: isdarkmode ? Colors.white:Colors.black),),
                 trailing: CupertinoButton(
-                  child: Icon(CupertinoIcons.settings),
+                  child: Icon(CupertinoIcons.settings,color: isdarkmode ? Colors.white:Colors.black),
                   onPressed: () {
                     Navigator.of(context).push(CupertinoPageRoute(builder: (context){
                       return setting();
@@ -203,7 +203,7 @@ class _HomeState extends State<Home> {
                                     radius: 25.0,
                                   ) ,
                                   title: Text(DataList[index].name,style: TextStyle(fontSize: 20),),
-                                  subtitle:Text('\$'+price+'\n'+price_ch),
+                                  subtitle:Text('\$'+price+'\n'+'1 hour  '+price_ch+'%'),
                                 ),
                               ),
                             ),

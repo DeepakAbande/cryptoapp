@@ -23,7 +23,8 @@ class _settingState extends State<setting> {
     return android ? Scaffold(
        appBar: AppBar(
          backgroundColor: isdarkmode ? Colors.black12 :Colors.white,
-         title: Text('Settings'),
+         title: Text('Settings',style: TextStyle(color: isdarkmode ? Colors.white :Colors.black),
+         ),
          iconTheme: IconThemeData(color: isdarkmode ? Colors.white :Colors.black),
        ),
       body: Container(
@@ -75,10 +76,10 @@ class _settingState extends State<setting> {
          mainAxisSize: MainAxisSize.min,
          children: [
            Padding(
-             padding: const EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 8.0),
+             padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
              child: Row(
                children: [
-                 Text('Dark Mode',style: TextStyle(fontSize: 20),),
+                 Text('Dark Mode',style: TextStyle(fontSize: 20,color: isdarkmode ? Colors.white:Colors.black,decoration: TextDecoration.none),),
                  Padding(
                    padding: const EdgeInsets.only(left: 185),
                    child: FlutterSwitch(value: themeProvider.isDarkMode, onToggle: (value){
@@ -96,7 +97,7 @@ class _settingState extends State<setting> {
                padding: const EdgeInsets.all(8.0),
                child: Row(
                    children: [
-                     Text('Android View',style: TextStyle(fontSize: 20),),
+                     Text('Android View',style: TextStyle(fontSize: 20,color: isdarkmode ? Colors.white:Colors.black,decoration: TextDecoration.none),),
                      Padding(
                        padding: const EdgeInsets.only(left: 160.0),
                        child: FlutterSwitch(value: android, onToggle: (val){
@@ -115,7 +116,8 @@ class _settingState extends State<setting> {
          ],
        ),
        navigationBar: CupertinoNavigationBar(
-         middle: Text('Setting'),
+         backgroundColor:  isdarkmode ? Colors.black :Colors.white,
+         middle: Text('Setting',style: TextStyle(color: isdarkmode ? Colors.white:Colors.black),),
        ),);
   }
 }
